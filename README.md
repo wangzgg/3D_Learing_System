@@ -1,2 +1,2 @@
 # 3D_Learing_System
-based on web3D online leaning system
+an online leaning system based on web3D
