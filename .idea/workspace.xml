@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdf23e9d-7d00-475d-806e-288e3b2fe4ed" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/front-end/.hintrc" afterDir="false" />
-    </list>
+    <list default="true" id="fdf23e9d-7d00-475d-806e-288e3b2fe4ed" name="Changes" comment="init" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
