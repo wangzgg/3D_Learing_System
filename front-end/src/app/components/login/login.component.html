@@ -1,1 +1,100 @@
-<p>login works!</p>
+<!-- 主体 -->
+<div id="body" style="background-color: rgb(41, 41, 75);height: 100%;">
+    <!-- 左侧 -->
+    <div style="width: 50%;float: left;">
+        <div style="padding-top: 14%;padding-left: 35%;">
+            <h1 style="color: aliceblue;">3D 多人沉浸式学习平台</h1>
+        </div>
+        <iframe src="http://localhost:2002/choose.html" scrolling="no"
+            style="position:absolute;top:25%;left: 10%;z-index:999;width:35%;height:65%;border: 0;border-radius:10%">
+
+        </iframe>
+    </div>
+
+    <!-- 右侧 -->
+    <div style="width: 26%;float: right;padding-top: 10%;padding-right: 20%;text-align: center;">
+        <div class="box" style="transition: all 0.3s;">
+            <el-card class="box-card" style="width:20px;opacity: 0.9;">
+                <h3>登录</h3>
+                <br>
+                <hr>
+                <br>
+                <el-form [show-icon]="true" [show-message]="true">
+                    <el-form-item label="用户名" [required]="true" [(status)]="staName.status" [error]="staName.message">
+                        <el-input (input)="checkname()" formControlName="name" placeholder="请输入用户名"
+                            [(model)]="user.username"></el-input>
+                    </el-form-item>
+
+                    <el-form-item label="密码" [required]="true" [(status)]="staPas.status" [error]="staPas.message">
+                        <el-input (input)="checkpass()" formControlName="pass" placeholder="请输入密码"
+                            [(model)]="user.password"></el-input>
+                    </el-form-item>
+                    <br>
+
+                    <el-form-item label="验证码" [required]="true" [(status)]="staCode.status" [error]="staCode.message">
+
+                        <div>
+                            <canvas (click)="refresh()" id="verifyCanvas" #verifyCanvas width="100" height="40"
+                                style="cursor: pointer;display: inline;z-index:100;float: right;"></canvas>
+                        </div>
+                        <div el-row>
+                            <div el-col span="12">
+                                <div class="grid-content bg-purple">
+                                    <div style="padding-right: 20px;float: left; display: inline;z-index:10;;">
+                                        <el-input (input)="checkcode()" formControlName="mail" placeholder="请输入图中的验证码"
+                                            [(model)]="user.checkCode"></el-input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div el-col span="12">
+                                <div class="grid-content bg-purple-light"></div>
+                            </div>
+                        </div>
+                    </el-form-item>
+                    <a (click)="refresh()"
+                        style="float: right;transform: translate3d(0,0,0);font-size: small;">看不清？换一张</a>
+                    <br>
+                    <br>
+                    <el-button type="primary" size="large" (click)="submit()">登录</el-button>
+                    <el-button type="primary" size="large" (click)="card.toggle = true">没有账号?注册</el-button>
+                </el-form>
+            </el-card>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="box-card" #card>
+    <el-dialog height="40%" width="30%" [title]="'扬州'" [(visible)]="card.toggle">
+        <ng-template #title>
+            <div style="text-align: center;">
+                <h3>注册</h3>
+            </div>
+        </ng-template>
+        <span>
+            <el-form [show-icon]="true" [show-message]="true">
+                <el-form-item label="用户名" [required]="true" [(status)]="staNameR.status" [error]="staNameR.message">
+                    <el-input (input)="checknamer()" formControlName="mail" placeholder="请输入用户名"
+                        [(model)]="register.username"></el-input>
+                </el-form-item>
+
+                <el-form-item label="邮箱" [required]="true" [(status)]="staEmail.status" [error]="staEmail.message">
+                    <el-input (input)="checkemail()" formControlName="mail" placeholder="请输入邮箱"
+                        [(model)]="register.email"></el-input>
+                </el-form-item>
+
+                <el-form-item label="密码" [required]="true" [(status)]="staPasR.status" [error]="staPasR.message">
+                    <el-input (input)="checkpas()" formControlName="mail" placeholder="请输入密码"
+                        [(model)]="register.password"></el-input>
+                </el-form-item>
+            </el-form>
+        </span>
+        <div id="botton" style="text-align: center;">
+            <el-button type="primary" size="large" (click)="regi()">注册</el-button>
+            <el-button (click)="card.toggle = false" (click)="cancel()">取消</el-button>
+        </div>
+    </el-dialog>
+</div>
