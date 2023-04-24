@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ElModule } from 'element-angular'
 
 // if you use webpack, import style
-import 'element-angular/theme/index.css'
+import 'element-angular/theme/index.css';
+import { LoginComponent } from './components/login/login.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
