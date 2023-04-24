@@ -1,7 +1,8 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
-import { ElMessageService } from 'element-angular'
+import { ElMessageService } from 'element-angular';
+import { ElNotificationService } from 'element-angular'
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { ElMessageService } from 'element-angular'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private message: ElMessageService, public http: HttpClient, private el: ElementRef, private router: Router) { }
+  constructor(private notify: ElNotificationService, private message: ElMessageService, public http: HttpClient, private el: ElementRef, private router: Router) { }
 
   @ViewChild('verifyCanvas', { static: true }) verifyCanvas: ElementRef;
 
@@ -151,9 +152,9 @@ export class LoginComponent implements OnInit {
       this.http.post(api, this.user, httpOptions).subscribe((response: any) => {
         if (response.code == 200) {
           // 弹窗
-          this.message['success']('登录成功');
+          this.notify['success']('登录成功');
           // 跳转到首页
-          location.href = "http://localhost:4200/index"
+          // location.href = "http://localhost:4200/index"
           sessionStorage.setItem('token', response.data);
         }
       });
@@ -172,7 +173,7 @@ export class LoginComponent implements OnInit {
       var api = "http://127.0.0.1:4523/m1/2633169-0-default/login";
       this.http.post(api, this.user, httpOptions).subscribe((response: any) => {
         if (response.code == 200) {
-          this.message['success']('注册成功');
+          this.notify['success']('登录成功');
         }
       });
     }
