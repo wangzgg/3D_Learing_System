@@ -13,11 +13,13 @@ import 'element-angular/theme/index.css';
 import { LoginComponent } from './components/login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
